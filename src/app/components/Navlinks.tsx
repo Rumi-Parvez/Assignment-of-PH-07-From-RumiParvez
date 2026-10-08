@@ -12,14 +12,14 @@ const Navlinks = async () => {
     return (
         <div className="container  mx-auto flex gap-10 items-center my-3 ">
             {
-                navcategory.map((nav)=>{
-                    return <>
-                    <Link href=''><div className="flex gap-1">
-                        <h1 key={nav.id} className="text-sm">{nav.icon}</h1>
-                        <h1 key={nav.slug} className="text-sm">{nav.nameBn}</h1>
+                navcategory.map((nav, ind)=> <div key={ind}>
+                        <Link href=''><div className="flex gap-1">
+                        <h1  className="text-sm">{nav.icon}</h1>
+                        <h1  className="text-sm">{nav.nameBn}</h1>
                     </div></Link>
-                    </>
-                })
+                    </div>
+                    
+                )
             }
         </div>
     );

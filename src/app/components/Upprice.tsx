@@ -11,13 +11,9 @@ const Upprice = async () => {
             </div>
             <div className="grid grid-cols-3 gap-4 my-4">
                 {
-                    products.slice(10 , 21).map((products , ind) => {
-                        return <>
-                        {
-                            products.change.dir === "up" && (<ProductCard key={ind} products={products}></ProductCard>)
-                        }
-                        </>
-                    })
+                    products.slice(10 , 21).map((products , ind) => products.change.dir === "up" && (<ProductCard key={ind} products={products}></ProductCard>)
+                        
+                    )
                 }
             </div>
             

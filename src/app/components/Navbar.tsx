@@ -17,25 +17,26 @@ const Navbar = () => {
         <div className="container px-20 mx-auto my-4  ">
       <div className="flex justify-between items-center">
         <div className="flex gap-3 items-center">
+          <Link href='/'>
           <Image
             src={logo}
             width={50}
             height={50}
             alt="Bajar Dor Logo"
-            className="bg-green-600 h-10 w-10 px-3 py-3 rounded-xl"></Image>
+            className="bg-green-600 h-10 w-10 px-3 py-3 rounded-xl"></Image></Link>
           <div>
-            <h1 className="font-bold text-2xl">বাজার দর</h1>
+            <Link href='/'><h1 className="font-bold text-2xl">বাজার দর</h1></Link>
             <p className="text-xs">{date}</p>
           </div>
           
         </div>
         <div className="flex gap-5 items-center">
             <Link href="/">
-              <button className="font-semibold text-sm">সাইন ইন</button>
+              <button className="font-semibold text-sm cursor-pointer">সাইন ইন</button>
             </Link>
 
             <Link href="/">
-              <button className="font-semibold text-sm bg-green-600 text-white px-5 py-2 rounded-[4px]">
+              <button className="font-semibold text-sm bg-green-600 text-white px-5 py-2 rounded-[4px] cursor-pointer">
                 সাইন আপ
               </button>
             </Link>

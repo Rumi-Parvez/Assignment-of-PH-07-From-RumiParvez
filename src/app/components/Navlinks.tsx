@@ -10,7 +10,7 @@ const getnavlinks = async () : Promise<ICategoryType[]>=>{
 const Navlinks = async () => {
     const navcategory = await getnavlinks();
     return (
-        <div className="flex gap-10 items-center my-3 ">
+        <div className="container  mx-auto flex gap-10 items-center my-3 ">
             {
                 navcategory.map((nav)=>{
                     return <>

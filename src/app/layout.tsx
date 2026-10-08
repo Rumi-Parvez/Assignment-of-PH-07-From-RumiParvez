@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <Navbar></Navbar>
 
-        <main>
+        <main className="container px-20 mx-auto ">
           {children}
         </main>
          <ToastContainer />

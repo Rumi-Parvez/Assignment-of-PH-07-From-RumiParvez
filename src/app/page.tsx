@@ -8,7 +8,7 @@ import Upprice from "./components/Upprice";
 export default function Home() {
   return (
     <>
-    <div className="space-y-5">
+    <div className="space-y-5 mb-20">
       <Hero></Hero>
       <Upprice></Upprice>
       <Downprice></Downprice>

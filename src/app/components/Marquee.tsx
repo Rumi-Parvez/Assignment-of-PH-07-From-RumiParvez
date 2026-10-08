@@ -16,9 +16,9 @@ const Marquee = async () => {
                 <div key={product.id}>
                   <Link href="">
                     <div className="flex gap-3 border border-gray-100 px-5 py-1 text-sm">
-                      <h1>{product.image}</h1>
-                      <h1>{product.nameBn}</h1>
-                      <h1>{product.today} টাকা/কেজি</h1>
+                      <h1 >{product.image}</h1>
+                      <h1 className="text-black">{product.nameBn}</h1>
+                      <h1 className="text-black">{product.today} টাকা/কেজি</h1>
                       <h1
                         className={
                           product.change.dir === "up"

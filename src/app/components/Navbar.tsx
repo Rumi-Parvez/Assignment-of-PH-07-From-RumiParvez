@@ -25,14 +25,14 @@ const Navbar = () => {
             alt="Bajar Dor Logo"
             className="bg-green-600 h-10 w-10 px-3 py-3 rounded-xl"></Image></Link>
           <div>
-            <Link href='/'><h1 className="font-bold text-2xl">বাজার দর</h1></Link>
-            <p className="text-xs">{date}</p>
+            <Link href='/'><h1 className="font-bold text-2xl text-black">বাজার দর</h1></Link>
+            <p className="text-xs text-black">{date}</p>
           </div>
           
         </div>
         <div className="flex gap-5 items-center">
             <Link href="/">
-              <button className="font-semibold text-sm cursor-pointer">সাইন ইন</button>
+              <button className="font-semibold text-sm cursor-pointer text-black">সাইন ইন</button>
             </Link>
 
             <Link href="/">

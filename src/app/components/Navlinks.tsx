@@ -13,9 +13,9 @@ const Navlinks = async () => {
         <div className="container  mx-auto flex gap-10 items-center my-3 ">
             {
                 navcategory.map((nav, ind)=> <div key={ind}>
-                        <Link href=''><div className="flex gap-1">
-                        <h1  className="text-sm">{nav.icon}</h1>
-                        <h1  className="text-sm">{nav.nameBn}</h1>
+                        <Link href={`/category/${nav.slug}`}><div className="flex gap-1">
+                        <h1  className="text-sm text-black">{nav.icon}</h1>
+                        <h1  className="text-sm text-black">{nav.nameBn}</h1>
                     </div></Link>
                     </div>
                     

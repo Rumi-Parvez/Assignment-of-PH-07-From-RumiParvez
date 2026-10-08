@@ -31,11 +31,11 @@ const Navbar = () => {
           
         </div>
         <div className="flex gap-5 items-center">
-            <Link href="/">
+            <Link href="/sign-in">
               <button className="font-semibold text-sm cursor-pointer text-black">সাইন ইন</button>
             </Link>
 
-            <Link href="/">
+            <Link href="/sign-up">
               <button className="font-semibold text-sm bg-green-600 text-white px-5 py-2 rounded-[4px] cursor-pointer">
                 সাইন আপ
               </button>

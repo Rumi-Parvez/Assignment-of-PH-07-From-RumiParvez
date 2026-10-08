@@ -14,7 +14,7 @@ const ProductCard = ({ products }: { products: IProductType }) => {
             </h1>
             <div>
               <h1 className="font-bold "> {products.nameBn} </h1>
-              <p className="text-xs ">প্রতি কেজি</p>
+              <p className="text-xs ">প্রতি {products.unit}</p>
             </div>
           </div>
 
@@ -25,14 +25,14 @@ const ProductCard = ({ products }: { products: IProductType }) => {
                 <span className="text-xl font-bold">{products.today}</span> টাকা
               </h1>
             </div>
-            <div className="bg-green-50 text-xs px-4 py-1 rounded-xl">
+            <div className={products.change.pct === 0 ? " bg-gray-100 text-xs px-4 py-1 rounded-xl" : "bg-green-50 text-xs px-4 py-1 rounded-xl"} >
               <h1
                 className={
-                  products.change.dir === "up"
+                  `${products.change.dir === "up"
                     ? "text-red-600"
-                    : "text-green-600"
+                    : (products.change.pct === 0 ? "" : "text-green-600")} font-semibold`
                 }>
-                {products.change.dir === "up" ? "▲" : "▼"}{" "}
+                {products.change.dir === "up" ? "▲" : (products.change.pct === 0 ? "" : "▼")}{" "}
                 {String(products.change.pct).replace("-", "")}%
               </h1>
             </div>

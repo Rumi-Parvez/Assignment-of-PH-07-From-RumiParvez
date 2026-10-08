@@ -8,9 +8,9 @@ interface IpromisParams {
 const page = async({params} : IpromisParams) => {
     const {productsid}= await params;
 
-    const res = await fetch(`${process.env.ALL_PRODUCTS_URL}/${productsid}`)
-    const data:IProductType = await res.json(); 
-    const productsData = data;
+    const res = await fetch(`${process.env.ALL_PRODUCTS_URL}/?slug=${productsid}`)
+    const data:IProductType[] = await res.json(); 
+    const productsData = data[0];
 
 
     const Lowestprice = Math.min(

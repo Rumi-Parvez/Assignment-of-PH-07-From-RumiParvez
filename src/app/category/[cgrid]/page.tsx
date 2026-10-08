@@ -38,14 +38,15 @@ if (sort === "high-low") {
             </div>
         </div>
 
-        <div className="bg-white w-full h-15 mt-5 rounded-2xl flex items-center gap-3 px-8 border border-gray-200">
+        <div className="bg-white w-full h-15 mt-5 rounded-2xl flex justify-between items-center gap-3 px-8 border border-gray-200">
+            <div></div>
             <CategorySort></CategorySort>
         </div>
 
         <h1 className="text-sm mt-6">মোট {allProducts.length}টি পণ্য দেখানো হচ্ছে</h1>
         <div className="grid grid-cols-3 gap-4 my-4 mb-30">
             {
-                allProducts.map((products , ind) => <ProductCard key={ind} products={products}></ProductCard>)
+                sortedProducts.map((products , ind) => <ProductCard key={ind} products={products}></ProductCard>)
             }
         </div>
         </>

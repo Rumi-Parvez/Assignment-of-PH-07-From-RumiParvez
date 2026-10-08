@@ -5,7 +5,7 @@ import { IProductType } from "../types/productstype";
 const ProductCard = ({ products }: { products: IProductType }) => {
   return (
     <div>
-      <Link href={`/products/${products.id}`} >
+      <Link href={`/products/${products.slug}`} >
         <div className="bg-white py-5 px-5 rounded-2xl border border-gray-200 hover:border-green-600 ">
           <div className="flex items-center gap-3">
             <h1 className="text-3xl bg-green-50 px-2 py-2 rounded-xl">

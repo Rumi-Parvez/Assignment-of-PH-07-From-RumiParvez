@@ -18,7 +18,7 @@ const Marquee = async () => {
                     <div className="flex gap-3 border border-gray-100 px-5 py-1 text-sm">
                       <h1 >{product.image}</h1>
                       <h1 className="text-black">{product.nameBn}</h1>
-                      <h1 className="text-black">{product.today} টাকা/কেজি</h1>
+                      <h1 className="text-black">{product.today} টাকা/{product.unit}</h1>
                       <h1
                         className={
                           product.change.dir === "up"

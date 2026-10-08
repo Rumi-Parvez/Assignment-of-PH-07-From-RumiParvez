@@ -12,7 +12,7 @@ const Hero = () => {
   });
     return (
         <div >
-      <div className="bg-white w-full h-100 my-5 rounded-2xl flex justify-between items-center pb-5 ">
+      <div className="bg-white w-full h-100 my-5 rounded-2xl flex justify-between items-center pb-5 border border-gray-200 ">
         <div className="space-y-5  px-10">
             <p className="text-sm font-semibold bg-green-100 text-green-600 px-8 py-2 rounded-3xl max-w-50 flex justify-center items-center">{date}</p>
             <h1 className="text-4xl font-bold">আজকের বাজারের দাম এক নজরে</h1>

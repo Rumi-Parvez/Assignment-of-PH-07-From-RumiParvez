@@ -1,16 +1,31 @@
 import ProductCard from "@/app/components/ProductCard";
+import CategorySort from "@/app/components/Sort";
 import { IProductType } from "@/app/types/productstype";
 
 interface PromisParams {
     params : Promise<{
         cgrid : string;
     }>
+    searchParams: Promise<{
+    sort?: string;
+  }>;
 }
-const page = async ({params} : PromisParams) => {
+const page = async ({params , searchParams} : PromisParams) => {
     const {cgrid} = await params;
+    const {sort} = await searchParams;
     const res = await fetch(`${process.env.PRODUCTS_CATEGORY_URL}${cgrid}`);
     const data:IProductType[] = await res.json();
     const allProducts = data;
+
+    const sortedProducts = [...allProducts];
+
+if (sort === "low-high") {
+  sortedProducts.sort((a, b) => a.today - b.today);
+}
+
+if (sort === "high-low") {
+  sortedProducts.sort((a, b) => b.today - a.today);
+}
 
 
     return (
@@ -24,7 +39,7 @@ const page = async ({params} : PromisParams) => {
         </div>
 
         <div className="bg-white w-full h-15 mt-5 rounded-2xl flex items-center gap-3 px-8 border border-gray-200">
-
+            <CategorySort></CategorySort>
         </div>
 
         <h1 className="text-sm mt-6">মোট {allProducts.length}টি পণ্য দেখানো হচ্ছে</h1>

@@ -11,6 +11,20 @@ const page = async({params} : IpromisParams) => {
     const res = await fetch(`${process.env.ALL_PRODUCTS_URL}/${productsid}`)
     const data:IProductType = await res.json(); 
     const productsData = data;
+
+
+    const Lowestprice = Math.min(
+        ...productsData.markets.map(market => market.min)
+    )
+    const Highestprice = Math.max(
+        ...productsData.markets.map(market => market.max)
+    )
+
+    const averagePrice =
+  productsData.markets.reduce(
+    (sum, market) => sum + (market.min + market.max) / 2,
+    0
+  ) / productsData.markets.length;
     return (
     
         <div>
@@ -44,17 +58,79 @@ const page = async({params} : IpromisParams) => {
             </div>
             </div>
 
-            <div className="bg-white w-full p-8 mt-5 rounded-2xl">
-                <h1 className="text-xl font-semibold">দামের সারসংক্ষেপ</h1>
+            <div className="bg-white w-full p-8 mt-5 mb-10  rounded-2xl">
+                <h1 className="text-xl font-semibold mb-4">দামের সারসংক্ষেপ</h1>
 
-                <div>
-                    <div>
-                        <p>সর্বনিম্ন দাম</p>
-                        <h1>৫৯ টাকা</h1>
-                        <p>সবচেয়ে কম দামের বাজার</p>
+                <div className="flex justify-between items-center gap-8">
+                    <div className="border border-gray-200 rounded-2xl px-10 py-5 w-full">
+                        <p className="text-sm ">সর্বনিম্ন দাম</p>
+                        <h1 className="font-semibold text-green-600"> <span className="text-3xl font-bold">{Lowestprice}</span>  টাকা</h1>
+                        <p className="text-sm">সবচেয়ে কম দামের বাজার</p>
+                    </div>
+                    <div className="border border-gray-200 rounded-2xl px-10 py-5 w-full">
+                        <p className="text-sm ">সর্বাধিক দাম</p>
+                        <h1 className="font-semibold text-red-600"> <span className="text-3xl font-bold">{Highestprice}</span>  টাকা</h1>
+                        <p className="text-sm">সবচেয়ে বেশি দামের বাজার</p>
+                    </div>
+                    <div className="border border-gray-200 rounded-2xl px-10 py-5 w-full">
+                        <p className="text-sm ">গড় দাম</p>
+                        <h1 className="font-semibold text-green-600"> <span className="text-3xl font-bold">{Math.round(averagePrice)}</span>  টাকা</h1>
+                        <p className="text-sm">প্রতি {productsData.unit}-এর হিসাবে</p>
                     </div>
                 </div>
+                
+                <h1 className="text-xl my-4 font-semibold">বাজারভিত্তিক আজকের দাম</h1>
+                <div className="overflow-hidden rounded-xl border border-gray-300">
+  <table className="w-full text-sm">
+    <thead className="bg-gray-50">
+      <tr className="border-b border-gray-200">
+        <th className="text-left px-4 py-3 font-medium">বাজার</th>
+        <th className="text-left px-4 py-3 font-medium">বিভাগ</th>
+        <th className="text-right px-4 py-3 font-medium">সর্বনিম্ন</th>
+        <th className="text-right px-4 py-3 font-medium">সর্বাধিক</th>
+        <th className="text-right px-4 py-3 font-medium">গড়</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {productsData.markets.map((market, ind) => {
+        const marketAverage = Math.round(
+          (market.min + market.max) / 2
+        );
+
+        return (
+          <tr
+            key={ind}
+            className="border-b  border-gray-500 last:border-b-0"
+          >
+            <td className="px-4 py-3">
+              {market.market}
+            </td>
+
+            <td className="px-4 py-3">
+              {market.division}
+            </td>
+
+            <td className="px-4 py-3 text-right">
+              {market.min} টাকা
+            </td>
+
+            <td className="px-4 py-3 text-right">
+              {market.max} টাকা
+            </td>
+
+            <td className="px-4 py-3 text-right font-medium">
+              {marketAverage} টাকা
+            </td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+</div>
             </div>
+
+            
         </div>
     );
 };

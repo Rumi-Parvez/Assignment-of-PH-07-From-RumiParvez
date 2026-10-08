@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { ICategoryType } from "../types/category";
+import NavLink from "./NavLink";
 
 const getnavlinks = async () : Promise<ICategoryType[]>=>{
     const res = await fetch(`${process.env.ALL_CATEGORY_URL}`);
@@ -12,14 +13,9 @@ const Navlinks = async () => {
     return (
         <div className="container  mx-auto flex gap-10 items-center my-3 ">
             {
-                navcategory.map((nav, ind)=> <div key={ind}>
-                        <Link href={`/category/${nav.slug}`}><div className="flex gap-1">
-                        <h1  className="text-sm text-black">{nav.icon}</h1>
-                        <h1  className="text-sm text-black">{nav.nameBn}</h1>
-                    </div></Link>
-                    </div>
+                navcategory.map((nav, ind)=> <NavLink key={ind} nav={nav} ></NavLink> )
                     
-                )
+                
             }
         </div>
     );

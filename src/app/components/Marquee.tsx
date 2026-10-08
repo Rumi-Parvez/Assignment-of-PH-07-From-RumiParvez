@@ -1,13 +1,8 @@
 import Link from "next/link";
 import MarqueeText from "react-marquee-text";
 
-import { IProductType } from "../types/productstype";
+import { getproducts } from "../api/products";
 
-const getproducts = async (): Promise<IProductType[]> => {
-  const res = await fetch(`${process.env.ALL_PRODUCTS_URL}`);
-  const data = await res.json();
-  return data;
-};
 const Marquee = async () => {
   const Products = await getproducts();
   return (

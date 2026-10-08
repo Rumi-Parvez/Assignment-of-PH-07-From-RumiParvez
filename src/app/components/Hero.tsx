@@ -20,7 +20,7 @@ const Hero = () => {
             <Link href='/'><button className="bg-green-600 px-7 py-1 text-white rounded-[5px] ">সব পণ্য দেখুন</button></Link>
         </div>
         <div className="px-10">
-            <Image src={hero} alt="Hero image" className="h-90 w-100 " ></Image>
+            <Image src={hero} alt="Hero image" className="h-90 w-100 " width={50} height={50}></Image>
         </div>
 
       </div>

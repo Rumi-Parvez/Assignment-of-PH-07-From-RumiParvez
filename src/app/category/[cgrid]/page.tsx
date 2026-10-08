@@ -18,8 +18,12 @@ const page = async ({params , searchParams} : PromisParams) => {
     const {cgrid} = await params;
     const {sort} = await searchParams;
     const res = await fetch(`${process.env.PRODUCTS_CATEGORY_URL}${cgrid}`);
-    
+    if (!res.ok) {
+  notFound();
+}
     const data:IProductType[] = await res.json();
+    if (!data || data.length === 0) {
+  notFound();}
     const allProducts = data;
 
     

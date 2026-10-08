@@ -14,7 +14,7 @@ const Marquee = async () => {
             (product) =>
               product.change.pct !== 0 && (
                 <div key={product.id}>
-                  <Link href="">
+                  <Link href={`/products/${product.id}`}>
                     <div className="flex gap-3 border border-gray-100 px-5 py-1 text-sm">
                       <h1 >{product.image}</h1>
                       <h1 className="text-black">{product.nameBn}</h1>

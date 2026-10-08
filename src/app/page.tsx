@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import Downprice from "./components/Downprice";
 import Hero from "./components/Hero";
 import Upprice from "./components/Upprice";
 
@@ -9,6 +10,7 @@ export default function Home() {
     <div className="space-y-5">
       <Hero></Hero>
       <Upprice></Upprice>
+      <Downprice></Downprice>
     </div>
     </>
   );

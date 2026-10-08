@@ -17,6 +17,40 @@ export default function SignUpPage() {
     data[key] = value.toString();
   });
 
+  const password = data.password;
+
+
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
+
+if (!emailRegex.test(data.email)) {
+  toast.error("Please enter a valid .com email address!");
+  return;
+}
+
+  if (password.length < 8) {
+    toast.error("Password must be at least 8 characters long!");
+    return;
+  }
+
+
+  if (!/[A-Z]/.test(password)) {
+    toast.error("Password must contain at least one uppercase letter!");
+    return;
+  }
+
+
+  if (!/[a-z]/.test(password)) {
+    toast.error("Password must contain at least one lowercase letter!");
+    return;
+  }
+
+
+  if (!/[0-9]/.test(password)) {
+    toast.error("Password must contain at least one number!");
+    return;
+  }
+
 
   if (data.password !== data.confirmPassword) {
     toast.error("Password does not match!");
@@ -27,6 +61,7 @@ export default function SignUpPage() {
 
   toast.success("Form submitted successfully!");
 };
+
 
   return (
     <main className="min-h-screen  px-4 py-15">
@@ -141,7 +176,7 @@ export default function SignUpPage() {
           <div className="flex justify-center in-checked: gap-2">
             <button
             type="button"
-            className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold "
+            className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer "
           >
             <FcGoogle />
 
@@ -152,7 +187,7 @@ export default function SignUpPage() {
 
           <button
             type="button"
-            className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold "
+            className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer"
           >
             <SiGithub />
 
@@ -162,7 +197,7 @@ export default function SignUpPage() {
 
           
           <p className="mt-5 text-center text-sm text-gray-600">
-            অ্যাকাউন্ট আছে?{" "}
+            অ্যাকাউন্ট আছে?
 
             <Link
               href="/sign-in"

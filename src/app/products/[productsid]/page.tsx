@@ -1,3 +1,6 @@
+import { Suspense } from "react";
+
+import ProductLodae from "@/app/loadings/ProductLodae";
 import { IProductType } from "@/app/types/productstype";
 
 interface IpromisParams {
@@ -27,7 +30,10 @@ const page = async({params} : IpromisParams) => {
   ) / productsData.markets.length;
     return (
     
-        <div>
+        <>
+        <Suspense fallback={<ProductLodae></ProductLodae>}>
+
+          <div>
             <p className="text-sm flex mt-8 ">{`হোম  >  ${productsData.categoryNameBn}  >  ${productsData.nameBn}`}</p>
 
             <div className="bg-white w-full h-50 mt-5 rounded-2xl flex justify-between items-center gap-3 px-8  border border-gray-200">
@@ -132,6 +138,8 @@ const page = async({params} : IpromisParams) => {
 
             
         </div>
+        </Suspense>
+        </>
     );
 };
 

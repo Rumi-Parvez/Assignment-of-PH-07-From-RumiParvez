@@ -1,5 +1,8 @@
+import { Suspense } from "react";
+
 import ProductCard from "@/app/components/ProductCard";
 import CategorySort from "@/app/components/Sort";
+import CategoryLoad from "@/app/loadings/CategoryLoad";
 import { IProductType } from "@/app/types/productstype";
 
 interface PromisParams {
@@ -30,7 +33,8 @@ if (sort === "high-low") {
 
     return (
         <>
-        <div className="bg-white w-full h-30 mt-10 rounded-2xl flex items-center gap-3 px-8 border border-gray-200">
+        <Suspense fallback={<CategoryLoad></CategoryLoad>}>
+            <div className="bg-white w-full h-30 mt-10 rounded-2xl flex items-center gap-3 px-8 border border-gray-200">
             <h1 className="text-5xl">{allProducts[1].categoryIcon}</h1>  
             <div>
                 <h1 className="font-bold text-3xl">{allProducts[1].categoryNameBn}</h1>
@@ -45,10 +49,13 @@ if (sort === "high-low") {
 
         <h1 className="text-sm mt-6">মোট {allProducts.length}টি পণ্য দেখানো হচ্ছে</h1>
         <div className="grid grid-cols-3 gap-4 my-4 mb-30">
-            {
+            
+                {
                 sortedProducts.map((products , ind) => <ProductCard key={ind} products={products}></ProductCard>)
             }
+           
         </div>
+        </Suspense>
         </>
     );
 };

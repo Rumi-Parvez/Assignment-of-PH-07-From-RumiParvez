@@ -15,7 +15,6 @@ const Navbar = () => {
   });
 
   return (
-    <>
     <div className="bg-white">
       <div className="container px-3 sm:px-6 md:px-10 lg:px-20 mx-auto my-4">
         <div className="flex justify-between items-center gap-2">
@@ -47,26 +46,11 @@ const Navbar = () => {
           <Navlinks />
         </div>
       </div>
-<<<<<<< HEAD
-      <div >
-        <Navlinks></Navlinks>
-      </div>
-      
-      
-    </div>
-    <div >
-        <Marquee></Marquee>
-      </div>
-    </div>
-    </>
-    
-=======
 
       <div className="w-full overflow-hidden">
         <Marquee />
       </div>
     </div>
->>>>>>> restore-profile-page
   );
 };
 

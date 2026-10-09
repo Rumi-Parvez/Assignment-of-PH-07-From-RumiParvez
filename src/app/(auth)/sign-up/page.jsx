@@ -9,75 +9,92 @@ import { toast } from "react-toastify";
 import { signIn, signUp} from "../../../lib/auth-client"
 
 export default function SignUpPage() {
-  const router = useRouter();
+    const router = useRouter();
 
   const onSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
+  const formData = new FormData(e.currentTarget);
 
-    const data= Object.fromEntries(formData.entries());
-   
+  const data= Object.fromEntries(formData.entries());
+  console.log(data);
 
-    const { data:formdata, error } = await signUp.email({
-      name: data.name,
-      email: data.email,
-      password: data.password,
-      callbackURL: "/",
-    });
+  const { data:formdata, error } = await signUp.email({
+    name: data.name, 
+    email: data.email, 
+    password: data.password, 
+    callbackURL: "/", 
+  });
+  
 
-   
+  
 
-    const password = data.password;
+  console.log(`after signup` ,formdata, error);
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
 
-    if (!emailRegex.test(data.email)) {
-      toast.error("Please enter a valid .com email address!");
-      return;
-    }
 
-    if (password.length < 8) {
-      toast.error("Password must be at least 8 characters long!");
-      return;
-    }
 
-    if (!/[A-Z]/.test(password)) {
-      toast.error("Password must contain at least one uppercase letter!");
-      return;
-    }
 
-    if (!/[a-z]/.test(password)) {
-      toast.error("Password must contain at least one lowercase letter!");
-      return;
-    }
 
-    if (!/[0-9]/.test(password)) {
-      toast.error("Password must contain at least one number!");
-      return;
-    }
 
-    if (data.password !== data.confirmPassword) {
-      toast.error("Password does not match!");
-      return;
-    }
 
-   
-    toast.success("Form submitted successfully!");
+  const password = data.password;
 
-    if (error) {
-      toast.error(`${error.message} or Login Please`);
-      return;
-    }
 
-    toast.success(`Welcome ${formdata.user.name}!`);
 
-    router.push("/");
-  };
+  const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
 
-  const handlecliclgoogleauth = async()=>{
+if (!emailRegex.test(data.email)) {
+  toast.error("Please enter a valid .com email address!");
+  return;
+}
 
-<<<<<<< HEAD
+  if (password.length < 8) {
+    toast.error("Password must be at least 8 characters long!");
+    return;
+  }
+
+
+  if (!/[A-Z]/.test(password)) {
+    toast.error("Password must contain at least one uppercase letter!");
+    return;
+  }
+
+
+  if (!/[a-z]/.test(password)) {
+    toast.error("Password must contain at least one lowercase letter!");
+    return;
+  }
+
+
+  if (!/[0-9]/.test(password)) {
+    toast.error("Password must contain at least one number!");
+    return;
+  }
+
+
+  if (data.password !== data.confirmPassword) {
+    toast.error("Password does not match!");
+    return;
+  }
+
+  console.log("Form Data:", data);
+
+  toast.success("Form submitted successfully!");
+
+  if (error) {
+  toast.error(`${error.message} or Login Please`);
+  return;
+}
+
+toast.success(`Welcome ${formdata.user.name}!`);
+
+router.push("/");
+
+};
+
+const handlecliclgoogleauth = async()=>{
+
      await signIn.social({
 
       provider: 'google',
@@ -87,19 +104,10 @@ export default function SignUpPage() {
 
     
 
-=======
-    const data = await signIn.social({
-      provider: 'google',
-      callbackURL: "/"
-    })
-
-    console.log("W8 for Google sign up !", data.name);
->>>>>>> restore-profile-page
   }
 
   const handlecliclgithubauth = async()=>{
 
-<<<<<<< HEAD
     await signIn.social({
 
       provider: 'github',
@@ -109,18 +117,9 @@ export default function SignUpPage() {
 
    
 
-=======
-    const data = await signIn.social({
-      provider: 'github',
-      callbackURL: "/"
-    })
-
-    console.log("W8 for GitHub sign up !" , data.name);
->>>>>>> restore-profile-page
   }
-
   return (
-    <main className="min-h-screen px-4 sm:px-6 py-10 sm:py-14 lg:py-15">
+    <main className="min-h-screen  px-4 py-15">
       <div className="mx-auto w-full max-w-md">
 
         <div className="mb-6 text-center">
@@ -133,7 +132,7 @@ export default function SignUpPage() {
           </p>
         </div>
 
-        <div className="rounded-xl border border-gray-200 bg-white px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
+        <div className="rounded-xl border border-gray-200 bg-white px-8 py-10">
 
           <form onSubmit={onSubmit} className="space-y-4">
 
@@ -149,7 +148,7 @@ export default function SignUpPage() {
                 id="name"
                 name="name"
                 type="text"
-                placeholder="যেমন: রহিম উদ্দিন"
+                placeholder="যেমন: রাহাত উদ্দিন"
                 required
                 className="w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm outline-none transition text-black"
               />
@@ -205,17 +204,18 @@ export default function SignUpPage() {
                 type="password"
                 placeholder="আবার লিখুন"
                 required
-                className="w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm outline-none transition text-black"
+                className="  w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm outline-none transition text-black"
               />
             </div>
 
-            <button
+           <button
               type="submit"
               className="w-full rounded-lg bg-green-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-green-600 cursor-pointer"
             >
               অ্যাকাউন্ট তৈরি করুন
             </button>
           </form>
+
 
           <div className="my-5 flex items-center gap-3">
             <div className="h-px flex-1 bg-gray-200" />
@@ -227,26 +227,31 @@ export default function SignUpPage() {
             <div className="h-px flex-1 bg-gray-200" />
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-2">
-            <button
-              type="button"
-              onClick={handlecliclgoogleauth}
-              className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer"
-            >
-              <FcGoogle />
-              Google দিয়ে চালিয়ে যান
-            </button>
 
+          <div className="flex justify-center in-checked: gap-2">
             <button
-              type="button"
-              onClick={handlecliclgithubauth}
-              className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer"
-            >
-              <SiGithub />
-              GitHub দিয়ে চালিয়ে যান
-            </button>
+            type="button"
+            onClick={handlecliclgoogleauth}
+            className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer ">
+            <FcGoogle />
+
+
+            Google দিয়ে চালিয়ে যান
+          </button>
+
+
+          <button
+            type="button"
+            onClick={handlecliclgithubauth}
+            className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer"
+          >
+            <SiGithub />
+
+            GitHub দিয়ে চালিয়ে যান
+          </button>
           </div>
 
+          
           <p className="mt-5 text-center text-sm text-gray-600">
             অ্যাকাউন্ট আছে?
 

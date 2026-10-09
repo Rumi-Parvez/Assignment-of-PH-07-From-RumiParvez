@@ -60,45 +60,22 @@ export default function LogInPage() {
 
   const handlecliclgoogleauth = async()=>{
 
-<<<<<<< HEAD
-   await signIn.social({
-
-      provider: 'google',
-     
-
-    })
-
-   
-=======
     const data = await signIn.social({
       provider: 'google',
       callbackURL: "/"
     })
 
     console.log("W8 for Google sign In ", data.name);
->>>>>>> restore-profile-page
   }
 
   const handlecliclgithubauth = async()=>{
 
-<<<<<<< HEAD
-  await signIn.social({
-
-      provider: 'github',
-      
-
-    })
-
-   
-
-=======
     const data = await signIn.social({
       provider: 'github',
       callbackURL: "/"
     })
 
     console.log("W8 for  GitHub sign In !" , data.name);
->>>>>>> restore-profile-page
   }
 
   return (

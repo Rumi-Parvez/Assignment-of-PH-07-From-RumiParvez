@@ -9,6 +9,12 @@ export const auth = betterAuth({
     emailAndPassword: { 
     enabled: true, 
   }, 
+  account: {
+  accountLinking: {
+    enabled: true,
+    trustedProviders: ["google", "github"],
+  },
+},
 
   baseURL: process.env.BETTER_AUTH_URL, 
     socialProviders: {

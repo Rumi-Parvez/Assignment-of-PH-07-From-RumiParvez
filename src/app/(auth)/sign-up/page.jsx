@@ -1,13 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
 import { toast } from "react-toastify";
 
-import {signUp} from "../../../lib/auth-client"
+import { signIn, signUp} from "../../../lib/auth-client"
 
 export default function SignUpPage() {
+    const router = useRouter();
+
   const onSubmit = async (e) => {
   e.preventDefault();
 
@@ -22,6 +25,9 @@ export default function SignUpPage() {
     password: data.password, 
     callbackURL: "/", 
   });
+  
+
+  
 
   console.log(`after signup` ,formdata, error);
 
@@ -75,9 +81,43 @@ if (!emailRegex.test(data.email)) {
   console.log("Form Data:", data);
 
   toast.success("Form submitted successfully!");
+
+  if (error) {
+  toast.error(`${error.message} or Login Please`);
+  return;
+}
+
+toast.success(`Welcome ${formdata.user.name}!`);
+
+router.push("/");
+
 };
 
+const handlecliclgoogleauth = async()=>{
 
+    const data = await signIn.social({
+
+      provider: 'google',
+      callbackURL: "/"
+
+    })
+
+    console.log("W8 for Google sign up !", data.name);
+
+  }
+
+  const handlecliclgithubauth = async()=>{
+
+    const data = await signIn.social({
+
+      provider: 'github',
+      callbackURL: "/"
+
+    })
+
+   console.log("W8 for GitHub sign up !" , data.name);
+
+  }
   return (
     <main className="min-h-screen  px-4 py-15">
       <div className="mx-auto w-full max-w-md">
@@ -191,8 +231,8 @@ if (!emailRegex.test(data.email)) {
           <div className="flex justify-center in-checked: gap-2">
             <button
             type="button"
-            className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer "
-          >
+            onClick={handlecliclgoogleauth}
+            className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer ">
             <FcGoogle />
 
 
@@ -202,6 +242,7 @@ if (!emailRegex.test(data.email)) {
 
           <button
             type="button"
+            onClick={handlecliclgithubauth}
             className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer"
           >
             <SiGithub />

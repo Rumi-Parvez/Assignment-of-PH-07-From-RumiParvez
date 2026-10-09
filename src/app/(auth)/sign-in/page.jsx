@@ -69,6 +69,35 @@ if (!emailRegex.test(data.email)) {
   toast.success("Form submitted successfully!");
 };
 
+
+
+
+const handlecliclgoogleauth = async()=>{
+
+    const data = await signIn.social({
+
+      provider: 'google',
+      callbackURL: "/"
+
+    })
+
+    console.log("W8 for Google sign In ", data.name);
+
+  }
+
+  const handlecliclgithubauth = async()=>{
+
+    const data = await signIn.social({
+
+      provider: 'github',
+      callbackURL: "/"
+
+    })
+
+   console.log("W8 for  GitHub sign In !" , data.name);
+
+  }
+
   return (
     <main className="min-h-screen m-auto px-4 py-20">
       <div className="mx-auto w-full max-w-md">
@@ -147,6 +176,7 @@ if (!emailRegex.test(data.email)) {
           <div className="flex justify-center in-checked: gap-2">
             <button
             type="button"
+            onClick={handlecliclgoogleauth}
             className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold  cursor-pointer"
           >
             <FcGoogle />
@@ -158,6 +188,7 @@ if (!emailRegex.test(data.email)) {
 
           <button
             type="button"
+            onClick={handlecliclgithubauth}
             className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer"
           >
             <SiGithub />

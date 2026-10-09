@@ -5,17 +5,32 @@ import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
 import { toast } from "react-toastify";
 
+import {signUp} from "../../../lib/auth-client"
+
 export default function SignUpPage() {
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e) => {
   e.preventDefault();
 
   const formData = new FormData(e.currentTarget);
 
-  const data: Record<string, string> = {};
+  const data= Object.fromEntries(formData.entries());
+  console.log(data);
 
-  formData.forEach((value, key) => {
-    data[key] = value.toString();
+  const { data:formdata, error } = await signUp.email({
+    name: data.name, 
+    email: data.email, 
+    password: data.password, 
+    callbackURL: "/", 
   });
+
+  console.log(`after signup` ,formdata, error);
+
+
+
+
+
+
+
 
   const password = data.password;
 

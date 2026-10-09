@@ -29,7 +29,7 @@ const SessionNav = () => {
                 width={500}
                 height={500}
                 alt="Profile"
-                className="h-10 w-10 sm:h-13 sm:w-13 rounded-lg object-cover"
+                className="h-8 w-8 md:h-10 md:w-10 sm:h-13 sm:w-13 rounded-lg object-cover"
               />
             </Link>
 
@@ -38,7 +38,7 @@ const SessionNav = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="flex max-w-32 sm:max-w-none cursor-pointer items-center gap-1 text-sm sm:text-xl font-semibold"
             >
-              <span className="truncate">{session?.user?.name}</span>
+              <span className="truncate text-xs md:text-xl">{session?.user?.name}</span>
               <IoMdArrowDropdown className="shrink-0" />
             </button>
           </div>

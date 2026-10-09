@@ -1,5 +1,4 @@
-import Link from "next/link";
-
+import MobileNavMenu from "../../app/components/MobileNavMenu";
 import { ICategoryType } from "../types/category";
 import NavLink from "./NavLink";
 
@@ -13,10 +12,18 @@ const Navlinks = async () => {
   const navcategory = await getnavlinks();
 
   return (
-    <div className="container mx-auto flex flex-wrap lg:flex-nowrap gap-2 sm:gap-3 lg:gap-10 items-center my-3">
-      {navcategory.map((nav, ind) => (
-        <NavLink key={ind} nav={nav}></NavLink>
-      ))}
+    <div className="container mx-auto my-3">
+
+      <div className="hidden sm:flex flex-wrap lg:flex-nowrap gap-2 sm:gap-3 lg:gap-10 items-center">
+        {navcategory.map((nav, ind) => (
+          <NavLink key={ind} nav={nav} />
+        ))}
+      </div>
+
+      
+      <div className="sm:hidden flex justify-center items-center">
+        <MobileNavMenu navcategory={navcategory} />
+      </div>
     </div>
   );
 };

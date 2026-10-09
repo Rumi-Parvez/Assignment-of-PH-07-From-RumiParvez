@@ -17,7 +17,7 @@ export default function SignUpPage() {
     const formData = new FormData(e.currentTarget);
 
     const data= Object.fromEntries(formData.entries());
-    console.log(data);
+   
 
     const { data:formdata, error } = await signUp.email({
       name: data.name,
@@ -26,7 +26,7 @@ export default function SignUpPage() {
       callbackURL: "/",
     });
 
-    console.log(`after signup` ,formdata, error);
+   
 
     const password = data.password;
 
@@ -62,8 +62,7 @@ export default function SignUpPage() {
       return;
     }
 
-    console.log("Form Data:", data);
-
+   
     toast.success("Form submitted successfully!");
 
     if (error) {

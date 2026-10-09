@@ -14,7 +14,7 @@ export default function LogInPage() {
     const formData = new FormData(e.currentTarget);
 
     const data= Object.fromEntries(formData.entries());
-    console.log(data);
+    
     const { data:formdata, error } = await signIn.email({
       email: data.email ,
       password: data.password ,
@@ -22,7 +22,7 @@ export default function LogInPage() {
       callbackURL: "/",
     });
 
-    console.log(`after signIN` ,formdata, error);
+   
 
     const password = data.password;
 
@@ -53,7 +53,7 @@ export default function LogInPage() {
       return;
     }
 
-    console.log("Form Data:", data);
+   
 
     toast.success("Form submitted successfully!");
   };

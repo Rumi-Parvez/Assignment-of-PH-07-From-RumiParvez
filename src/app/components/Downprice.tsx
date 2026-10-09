@@ -1,5 +1,3 @@
-import { DiVim } from "react-icons/di";
-
 import { getproducts } from "../api/products";
 import ProductCard from "./ProductCard";
 

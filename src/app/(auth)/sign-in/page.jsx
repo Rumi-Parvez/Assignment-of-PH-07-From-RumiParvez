@@ -8,72 +8,59 @@ import { toast } from "react-toastify";
 import {signIn} from "../../../lib/auth-client"
 
 export default function LogInPage() {
-const onSubmit = async (e) => {
-  e.preventDefault();
+  const onSubmit = async (e) => {
+    e.preventDefault();
 
-  const formData = new FormData(e.currentTarget);
+    const formData = new FormData(e.currentTarget);
 
-  const data= Object.fromEntries(formData.entries());
-  console.log(data);
-const { data:formdata, error } = await signIn.email({
-    email: data.email ,
-    password: data.password ,
-    rememberMe: true, 
-    callbackURL: "/", 
-});
+    const data= Object.fromEntries(formData.entries());
+    
+    const { data:formdata, error } = await signIn.email({
+      email: data.email ,
+      password: data.password ,
+      rememberMe: true,
+      callbackURL: "/",
+    });
 
+   
 
-  console.log(`after signIN` ,formdata, error);
+    const password = data.password;
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
 
+    if (!emailRegex.test(data.email)) {
+      toast.error("Please enter a valid .com email address!");
+      return;
+    }
 
+    if (password.length < 8) {
+      toast.error("Password must be at least 8 characters long!");
+      return;
+    }
 
+    if (!/[A-Z]/.test(password)) {
+      toast.error("Password must contain at least one uppercase letter!");
+      return;
+    }
 
+    if (!/[a-z]/.test(password)) {
+      toast.error("Password must contain at least one lowercase letter!");
+      return;
+    }
 
-  const password = data.password;
+    if (!/[0-9]/.test(password)) {
+      toast.error("Password must contain at least one number!");
+      return;
+    }
 
+   
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
+    toast.success("Form submitted successfully!");
+  };
 
-if (!emailRegex.test(data.email)) {
-  toast.error("Please enter a valid .com email address!");
-  return;
-}
+  const handlecliclgoogleauth = async()=>{
 
-  if (password.length < 8) {
-    toast.error("Password must be at least 8 characters long!");
-    return;
-  }
-
-
-  if (!/[A-Z]/.test(password)) {
-    toast.error("Password must contain at least one uppercase letter!");
-    return;
-  }
-
-
-  if (!/[a-z]/.test(password)) {
-    toast.error("Password must contain at least one lowercase letter!");
-    return;
-  }
-
-
-  if (!/[0-9]/.test(password)) {
-    toast.error("Password must contain at least one number!");
-    return;
-  }
-
-
-  console.log("Form Data:", data);
-
-  toast.success("Form submitted successfully!");
-};
-
-
-
-
-const handlecliclgoogleauth = async()=>{
-
+<<<<<<< HEAD
    await signIn.social({
 
       provider: 'google',
@@ -82,10 +69,19 @@ const handlecliclgoogleauth = async()=>{
     })
 
    
+=======
+    const data = await signIn.social({
+      provider: 'google',
+      callbackURL: "/"
+    })
+
+    console.log("W8 for Google sign In ", data.name);
+>>>>>>> restore-profile-page
   }
 
   const handlecliclgithubauth = async()=>{
 
+<<<<<<< HEAD
   await signIn.social({
 
       provider: 'github',
@@ -95,25 +91,33 @@ const handlecliclgoogleauth = async()=>{
 
    
 
+=======
+    const data = await signIn.social({
+      provider: 'github',
+      callbackURL: "/"
+    })
+
+    console.log("W8 for  GitHub sign In !" , data.name);
+>>>>>>> restore-profile-page
   }
 
   return (
-    <main className="min-h-screen m-auto px-4 py-20">
+    <main className="min-h-screen m-auto px-4 sm:px-6 py-10 sm:py-14 lg:py-20">
       <div className="mx-auto w-full max-w-md">
 
         <div className="mb-6 text-center">
           <h1 className="text-3xl font-bold text-gray-900">
-সাইন ইন          </h1>
+            সাইন ইন
+          </h1>
 
           <p className="mt-1 text-sm text-gray-600">
-বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।          </p>
+            বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
+          </p>
         </div>
 
-        <div className="rounded-xl border border-gray-200 bg-white px-8 py-10">
+        <div className="rounded-xl border border-gray-200 bg-white px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
 
           <form onSubmit={onSubmit} className="space-y-4">
-
-            
 
             <div>
               <label
@@ -151,15 +155,13 @@ const handlecliclgoogleauth = async()=>{
               />
             </div>
 
-            
-
-           <button
+            <button
               type="submit"
               className="w-full rounded-lg bg-green-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-green-600 cursor-pointer"
             >
-সাইন ইন            </button>
+              সাইন ইন
+            </button>
           </form>
-
 
           <div className="my-5 flex items-center gap-3">
             <div className="h-px flex-1 bg-gray-200" />
@@ -171,32 +173,26 @@ const handlecliclgoogleauth = async()=>{
             <div className="h-px flex-1 bg-gray-200" />
           </div>
 
-
-          <div className="flex justify-center in-checked: gap-2">
+          <div className="flex flex-col sm:flex-row justify-center gap-2">
             <button
-            type="button"
-            onClick={handlecliclgoogleauth}
-            className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold  cursor-pointer"
-          >
-            <FcGoogle />
+              type="button"
+              onClick={handlecliclgoogleauth}
+              className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer"
+            >
+              <FcGoogle />
+              Google দিয়ে চালিয়ে যান
+            </button>
 
-
-            Google দিয়ে চালিয়ে যান
-          </button>
-
-
-          <button
-            type="button"
-            onClick={handlecliclgithubauth}
-            className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs  text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer"
-          >
-            <SiGithub />
-
-            GitHub দিয়ে চালিয়ে যান
-          </button>
+            <button
+              type="button"
+              onClick={handlecliclgithubauth}
+              className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-xs text-gray-800 transition hover:bg-gray-50 font-bold cursor-pointer"
+            >
+              <SiGithub />
+              GitHub দিয়ে চালিয়ে যান
+            </button>
           </div>
 
-          
           <p className="mt-5 text-center text-sm text-gray-600">
             অ্যাকাউন্ট নেই?
 

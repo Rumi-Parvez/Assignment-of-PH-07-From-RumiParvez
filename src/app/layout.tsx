@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <Navbar></Navbar>
 
-        <main className="container px-20 mx-auto ">
+        <main className="container px-2 md:px-20 mx-auto ">
           {children}
         </main>
         <Footer></Footer>

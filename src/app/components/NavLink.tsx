@@ -17,12 +17,12 @@ const NavLink = ({ nav }: NavLinkProps) => {
   return (
     <Link href={`/category/${nav.slug}`}>
       <div
-        className={`flex justify-center items-center gap-1 px-5 py-2 rounded-lg ${
+        className={`flex justify-center items-center gap-1 px-2 sm:px-3 md:px-4 lg:px-5 py-2 rounded-lg ${
           isActive ? "bg-green-600 text-white" : "text-black"
         }`}
       >
         <h1 className="text-sm">{nav.icon}</h1>
-        <h1 className="text-sm">{nav.nameBn}</h1>
+        <h1 className="text-sm whitespace-nowrap">{nav.nameBn}</h1>
       </div>
     </Link>
   );

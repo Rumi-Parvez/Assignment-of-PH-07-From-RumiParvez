@@ -13,29 +13,41 @@ const Navbar = () => {
     month: "long",
     day: "numeric",
   });
+
   return (
     <>
     <div className="bg-white">
-        <div className="container px-20 mx-auto my-4  ">
-      <div className="flex justify-between items-center">
-        <div className="flex gap-3 items-center">
-          <Link href='/'>
-          <Image
-            src={logo}
-            width={50}
-            height={50}
-            alt="Bajar Dor Logo"
-            className="bg-green-600 h-10 w-10 px-3 py-3 rounded-xl"></Image></Link>
-          <div>
-            <Link href='/'><h1 className="font-bold text-2xl text-black">বাজার দর</h1></Link>
-            <p className="text-xs text-black">{date}</p>
+      <div className="container px-3 sm:px-6 md:px-10 lg:px-20 mx-auto my-4">
+        <div className="flex justify-between items-center gap-2">
+          <div className="flex gap-2 sm:gap-3 items-center min-w-0">
+            <Link href="/">
+              <Image
+                src={logo}
+                width={50}
+                height={50}
+                alt="Bajar Dor Logo"
+                className="bg-green-600 h-10 w-10 px-3 py-3 rounded-xl shrink-0"
+              />
+            </Link>
+
+            <div className="min-w-0">
+              <Link href="/">
+                <h1 className="font-bold text-sm md:text-2xl text-black">
+                  বাজার দর
+                </h1>
+              </Link>
+              <p className="text-[8px] md:text-xs text-black">{date}</p>
+            </div>
           </div>
-          
+
+          <SessionNav />
         </div>
-        <SessionNav></SessionNav>
-        
-        
+
+        <div>
+          <Navlinks />
+        </div>
       </div>
+<<<<<<< HEAD
       <div >
         <Navlinks></Navlinks>
       </div>
@@ -48,6 +60,13 @@ const Navbar = () => {
     </div>
     </>
     
+=======
+
+      <div className="w-full overflow-hidden">
+        <Marquee />
+      </div>
+    </div>
+>>>>>>> restore-profile-page
   );
 };
 

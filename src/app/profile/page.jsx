@@ -1,18 +1,39 @@
 "use client";
 
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 import avatar from "../../assets/download (2).jpg";
-import { signOut, useSession } from "../../lib/auth-client";
+import { authClient, signOut, useSession } from "../../lib/auth-client";
 import ProfilePageLoade from "../loadings/profilepageloade";
 
 const ProfilePage = () => {
-  const { data: session, isPending } = useSession();
+  const { data: session, isPending, refetch } = useSession();
   if (isPending) {
     return (
       <ProfilePageLoade></ProfilePageLoade>
     );
   }
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+  
+    const formData = new FormData(e.currentTarget);
+
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
+
+    await authClient.updateUser({
+    ...data
+})
+  
+    
+    await refetch();
+
+    toast.success(`Profile updated successfully!`)
+  
+}
+
   return (
     <>
       <div className="flex justify-center items-center py-10 ">
@@ -36,7 +57,7 @@ const ProfilePage = () => {
             </div>
 
             <button
-              onClick={()=> signOut}
+              onClick={()=> signOut()}
               className="text-xl py-2 px-4 cursor-pointer border border-red-600 text-red-600 rounded-xl font-semibold ">
               ↩ সাইন আউট
             </button>
@@ -45,7 +66,7 @@ const ProfilePage = () => {
           <div className="bg-white w-full  mt-10 p-10 rounded-xl border border-gray-200">
             <h1 className="text-2xl font-bold ">তথ্য</h1>
 
-            <form>
+            <form onSubmit={onSubmit}>
               <div className="mt-5">
                 <label
                   htmlFor="name"

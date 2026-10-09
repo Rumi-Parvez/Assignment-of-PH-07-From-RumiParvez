@@ -73,7 +73,7 @@ const SessionNav = () => {
 
                 <button
                   type="button"
-                  onClick={()=>signOut}
+                  onClick={()=>signOut()}
                   className="mt-1 w-full rounded-md px-2 py-2 text-left text-sm text-red-600 hover:bg-red-50 cursor-pointer"
                 >
                   ↩ সাইন আউট

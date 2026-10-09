@@ -14,6 +14,7 @@ const Navbar = () => {
     day: "numeric",
   });
   return (
+    <>
     <div className="bg-white">
         <div className="container px-20 mx-auto my-4  ">
       <div className="flex justify-between items-center">
@@ -41,10 +42,11 @@ const Navbar = () => {
       
       
     </div>
-    <div>
+    <div >
         <Marquee></Marquee>
       </div>
     </div>
+    </>
     
   );
 };

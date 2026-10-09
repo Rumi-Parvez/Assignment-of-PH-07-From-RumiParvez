@@ -8,7 +8,7 @@ const Marquee = async () => {
 
   return (
     <MarqueeText duration={45} direction="right" pauseOnHover className="gap-10">
-      <div>
+      <div >
         <div className="flex justify-between items-center">
           {Products.map(
             (product) =>

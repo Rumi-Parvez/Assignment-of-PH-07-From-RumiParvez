@@ -95,27 +95,27 @@ router.push("/");
 
 const handlecliclgoogleauth = async()=>{
 
-    const data = await signIn.social({
+     await signIn.social({
 
       provider: 'google',
-      callbackURL: "/"
+      
 
     })
 
-    console.log("W8 for Google sign up !", data.name);
+    
 
   }
 
   const handlecliclgithubauth = async()=>{
 
-    const data = await signIn.social({
+    await signIn.social({
 
       provider: 'github',
-      callbackURL: "/"
+      
 
     })
 
-   console.log("W8 for GitHub sign up !" , data.name);
+   
 
   }
   return (

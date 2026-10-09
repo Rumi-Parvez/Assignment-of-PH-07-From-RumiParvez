@@ -25,13 +25,13 @@ const SessionNav = () => {
       {session?.user ? (
         <div className="relative">
           <div className="flex items-center gap-3">
-            <Image
+            <Link href='/profile'><Image
               src={avatar}
               width={500}
               height={500}
               alt="Profile"
               className="h-13 w-13 rounded-lg object-cover"
-            />
+            ></Image></Link>
 
             <button
               type="button"
@@ -68,13 +68,13 @@ const SessionNav = () => {
                   className=" rounded-md px-2 py-2 text-sm text-gray-700 hover:bg-green-50 flex  items-center gap-1"
                 >
                   <IoIosPerson className="text-xl "/>
- প্রোফাইল
+ আমার প্রোফাইল
                 </Link>
 
                 <button
                   type="button"
-                  onClick={()=> signOut}
-                  className="mt-1 w-full rounded-md px-2 py-2 text-left text-sm text-red-600 hover:bg-red-50"
+                  onClick={()=>signOut}
+                  className="mt-1 w-full rounded-md px-2 py-2 text-left text-sm text-red-600 hover:bg-red-50 cursor-pointer"
                 >
                   ↩ সাইন আউট
                 </button>

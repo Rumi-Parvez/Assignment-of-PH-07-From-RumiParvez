@@ -1,22 +1,27 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { toast } from "react-hot-toast";
+import { Suspense, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import toast from "react-hot-toast";
 
-const AuthToast = () => {
+function AuthToastContent() {
   const searchParams = useSearchParams();
-  const router = useRouter();
 
   useEffect(() => {
     if (searchParams.get("reason") === "login-required") {
-      toast.error("এই পেজটি দেখতে আগে সাইন ইন করুন।");
-
-      router.replace("/signin");
+      toast.error("Please sign in to access this page.", {
+        id: "login-required",
+      });
     }
-  }, [searchParams, router]);
+  }, [searchParams]);
 
   return null;
-};
+}
 
-export default AuthToast;
+export default function AuthToast() {
+  return (
+    <Suspense fallback={null}>
+      <AuthToastContent />
+    </Suspense>
+  );
+}

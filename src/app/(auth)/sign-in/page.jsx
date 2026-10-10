@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
 
 import {signIn} from "../../../lib/auth-client"
+import AuthToast from "@/app/components/AuthToast";
 
 export default function LogInPage() {
   const onSubmit = async (e) => {
@@ -79,7 +80,9 @@ export default function LogInPage() {
   }
 
   return (
+
     <main className="min-h-screen m-auto px-4 sm:px-6 py-10 sm:py-14 lg:py-20">
+      <AuthToast></AuthToast>
       <div className="mx-auto w-full max-w-md">
 
         <div className="mb-6 text-center">

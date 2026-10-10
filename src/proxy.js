@@ -9,6 +9,10 @@ export async function proxy(request) {
     })
 
     if(!session) {
+        const signInUrl = new URL("/sign-in", request.url);
+
+    signInUrl.searchParams.set("reason", "login-required");
+
         return NextResponse.redirect(new URL("/sign-in", request.url));
 
     }

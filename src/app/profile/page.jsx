@@ -33,6 +33,12 @@ const ProfilePage = () => {
 
   }
 
+
+  const handlclicksignout = ()=>{
+    signOut()
+    toast.success("Your SignOut has Successfully Done")
+  }
+
   return (
     <>
       <div className="flex justify-center items-center py-6 sm:py-10 px-3 sm:px-6">
@@ -61,7 +67,7 @@ const ProfilePage = () => {
             </div>
 
             <button
-              onClick={() => signOut()}
+              onClick={handlclicksignout}
               className="text-base sm:text-xl py-2 px-4 cursor-pointer border border-red-600 text-red-600 rounded-xl font-semibold self-start sm:self-auto shrink-0"
             >
               ↩ সাইন আউট

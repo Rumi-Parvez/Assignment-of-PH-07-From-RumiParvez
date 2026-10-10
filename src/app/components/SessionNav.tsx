@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosPerson, IoMdArrowDropdown } from "react-icons/io";
+import { toast } from "react-toastify";
 
 import avatar from "../../assets/download (2).jpg";
 import { signOut, useSession } from "../../lib/auth-client";
@@ -18,7 +19,10 @@ const SessionNav = () => {
     );
   }
 
-  
+  const handlclicksignout = ()=>{
+    signOut()
+    toast.success("Your SignOut has Successfully Done")
+  }
 
   return (
     <div className="relative">
@@ -73,7 +77,7 @@ const SessionNav = () => {
 
                 <button
                   type="button"
-                  onClick={()=>signOut()}
+                  onClick={handlclicksignout}
                   className="mt-1 w-full rounded-md px-2 py-2 text-left text-sm text-red-600 hover:bg-red-50 cursor-pointer"
                 >
                   ↩ সাইন আউট

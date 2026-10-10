@@ -148,7 +148,7 @@ const handlecliclgoogleauth = async()=>{
                 id="name"
                 name="name"
                 type="text"
-                placeholder="যেমন: রাহাত উদ্দিন"
+                placeholder="যেমন: রহিম উদ্দিন"
                 required
                 className="w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm outline-none transition text-black"
               />

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 import avatar from "../../assets/download (2).jpg";
 import { authClient, signOut, useSession } from "../../lib/auth-client";

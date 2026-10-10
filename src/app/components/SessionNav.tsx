@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "react-hot-toast";
 import { IoIosPerson, IoMdArrowDropdown } from "react-icons/io";
-import { toast } from "react-toastify";
 
 import avatar from "../../assets/download (2).jpg";
 import { signOut, useSession } from "../../lib/auth-client";

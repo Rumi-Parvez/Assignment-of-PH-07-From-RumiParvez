@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { toast } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
-import { toast } from "react-toastify";
 
 import {signIn} from "../../../lib/auth-client"
 

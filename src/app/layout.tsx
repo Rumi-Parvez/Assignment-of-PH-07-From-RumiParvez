@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import {Hind_Siliguri , Geist_Mono} from "next/font/google";
 import "./globals.css";
-import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali"],
@@ -39,7 +39,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
 
 
-         <ToastContainer />
+         <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
 
       </body>
     </html>

@@ -199,7 +199,7 @@ const page = async ({ params }: IpromisParams) => {
                                         key={ind}
                                         className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-5 space-y-3"
                                     >
-                                        <div className="border-b border-gray-100 pb-3">
+                                        <div className=" pb-3">
                                             <h2 className="font-semibold text-base sm:text-lg">
                                                 {market.market}
                                             </h2>
@@ -231,7 +231,7 @@ const page = async ({ params }: IpromisParams) => {
                                             </div>
                                         </div>
 
-                                        <div className="flex justify-between items-center gap-2 border-t border-gray-100 pt-3">
+                                        <div className="flex justify-between items-center gap-2 pt-3">
                                             <span className="text-sm text-gray-600">
                                                 গড় দাম
                                             </span>

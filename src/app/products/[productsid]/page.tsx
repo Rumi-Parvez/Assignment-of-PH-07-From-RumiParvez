@@ -59,7 +59,7 @@ const page = async ({ params }: IpromisParams) => {
                             </h1>
 
                             <div className="space-y-1 min-w-0">
-                                <h1 className="font-bold text-2xl sm:text-2xl lg:text-3xl break-words">
+                                <h1 className="font-bold text-2xl sm:text-2xl lg:text-3xl wrap-break-words">
                                     {productsData.nameBn}
                                 </h1>
 

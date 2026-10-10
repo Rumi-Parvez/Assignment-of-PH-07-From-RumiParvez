@@ -12,7 +12,7 @@ const ProductCard = ({ products }: { products: IProductType }) => {
               {products.image}
             </h1>
             <div className="min-w-0">
-              <h1 className="font-bold break-words">
+              <h1 className="font-bold wrap-break-words">
                 {products.nameBn}
               </h1>
               <p className="text-xs">প্রতি {products.unit}</p>

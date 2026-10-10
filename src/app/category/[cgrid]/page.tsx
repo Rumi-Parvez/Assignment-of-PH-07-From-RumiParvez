@@ -39,7 +39,7 @@ const Page = async ({ params }: PromisParams) => {
           </h1>
 
           <div className="min-w-0">
-            <h1 className="font-bold text-xl sm:text-2xl lg:text-3xl break-words">
+            <h1 className="font-bold text-xl sm:text-2xl lg:text-3xl wrap-break-words">
               {allProducts[0]?.categoryNameBn}
             </h1>
 

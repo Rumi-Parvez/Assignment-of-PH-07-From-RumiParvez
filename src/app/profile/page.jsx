@@ -57,7 +57,7 @@ const ProfilePage = () => {
               ></Image>
 
               <div className="space-y-1 min-w-0">
-                <h1 className="text-2xl sm:text-3xl font-bold break-words">
+                <h1 className="text-2xl sm:text-3xl font-bold wrap-break-word">
                   {session?.user.name}
                 </h1>
                 <p className="text-sm font-semibold text-gray-500 break-all">

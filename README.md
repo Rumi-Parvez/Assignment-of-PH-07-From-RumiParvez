@@ -56,7 +56,7 @@ Built with Next.js, TypeScript, and modern UI libraries, Bazar Dor focuses on ma
 
 ## Product Page Screenshoot
 <p align="center">
-  <img src="./src/assets/screenshot.png" alt="Bazar Dor Project Screenshot" width="100%" />
+  <img src="./src/assets/{34108FBB-EF6E-4888-93AD-C3C8163B36DE}.png" alt="Bazar Dor Project Screenshot" width="100%" />
 </p>
 
 ## 📊 Product Information

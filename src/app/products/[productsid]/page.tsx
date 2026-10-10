@@ -4,6 +4,11 @@ import { notFound } from "next/navigation";
 import ProductLodae from "@/app/loadings/ProductLodae";
 import { IProductType } from "@/app/types/productstype";
 
+import {
+  toBanglaNumber,
+  toBanglaUnit,
+
+} from "../../types/bangla";
 interface IpromisParams {
     params: Promise<{
         productsid: string;
@@ -64,7 +69,7 @@ const page = async ({ params }: IpromisParams) => {
                                 </h1>
 
                                 <p className="text-sm">
-                                    প্রতি {productsData.unit} . {productsData.categoryNameBn}
+                                    প্রতি {toBanglaUnit(productsData.unit)} . {productsData.categoryNameBn}
                                 </p>
 
                                 {productsData.change.dir === "up" ? (
@@ -73,7 +78,7 @@ const page = async ({ params }: IpromisParams) => {
                                         <span className="font-semibold">
                                             বেড়েছে
                                         </span>{" "}
-                                        · {productsData.today - productsData.yesterday} টাকা
+                                        · {toBanglaNumber(productsData.today - productsData.yesterday)} টাকা
                                     </p>
                                 ) : productsData.change.pct === 0 ? (
                                     <p className="text-sm">
@@ -89,7 +94,7 @@ const page = async ({ params }: IpromisParams) => {
                                         <span className="font-semibold">
                                             কমেছে
                                         </span>{" "}
-                                        · {productsData.yesterday - productsData.today} টাকা
+                                        · {toBanglaNumber(productsData.yesterday - productsData.today)} টাকা
                                     </p>
                                 )}
                             </div>
@@ -100,10 +105,10 @@ const page = async ({ params }: IpromisParams) => {
                             <h1 className="text-sm">আজকের দাম</h1>
 
                             <h1 className="text-3xl font-bold">
-                                {productsData.today}
+                                {toBanglaNumber(productsData.today)}
                             </h1>
 
-                            <h1>টাকা / {productsData.unit}</h1>
+                            <h1>টাকা / {toBanglaUnit(productsData.unit)}</h1>
 
                             <h1
                                 className={`${
@@ -119,7 +124,7 @@ const page = async ({ params }: IpromisParams) => {
                                     : productsData.change.pct === 0
                                       ? ""
                                       : "▼"}{" "}
-                                {String(productsData.change.pct).replace("-", "")}%
+                                {toBanglaNumber(productsData.change.pct).replace("-", "")}%
                             </h1>
                         </div>
                     </div>
@@ -137,7 +142,7 @@ const page = async ({ params }: IpromisParams) => {
 
                                 <h1 className="font-semibold text-green-600">
                                     <span className="text-3xl font-bold">
-                                        {Lowestprice}
+                                        {toBanglaNumber(Lowestprice)}
                                     </span>{" "}
                                     টাকা
                                 </h1>
@@ -153,7 +158,7 @@ const page = async ({ params }: IpromisParams) => {
 
                                 <h1 className="font-semibold text-red-600">
                                     <span className="text-3xl font-bold">
-                                        {Highestprice}
+                                        {toBanglaNumber(Highestprice)}
                                     </span>{" "}
                                     টাকা
                                 </h1>
@@ -172,13 +177,13 @@ const page = async ({ params }: IpromisParams) => {
 
                                 <h1 className="font-semibold text-green-600">
                                     <span className="text-3xl font-bold">
-                                        {Math.round(averagePrice)}
+                                        {toBanglaNumber(Math.round(averagePrice))}
                                     </span>{" "}
                                     টাকা
                                 </h1>
 
                                 <p className="text-sm">
-                                    প্রতি {productsData.unit}-এর হিসাবে
+                                    প্রতি {toBanglaUnit(productsData.unit)}-এর হিসাবে
                                 </p>
                             </div>
                         </div>
@@ -216,7 +221,7 @@ const page = async ({ params }: IpromisParams) => {
                                                 </p>
 
                                                 <p className="text-lg sm:text-xl font-bold text-green-700">
-                                                    {market.min} টাকা
+                                                    {toBanglaNumber(market.min)} টাকা
                                                 </p>
                                             </div>
 
@@ -226,7 +231,7 @@ const page = async ({ params }: IpromisParams) => {
                                                 </p>
 
                                                 <p className="text-lg sm:text-xl font-bold text-red-700">
-                                                    {market.max} টাকা
+                                                    {toBanglaNumber(market.max)} টাকা
                                                 </p>
                                             </div>
                                         </div>
@@ -237,7 +242,7 @@ const page = async ({ params }: IpromisParams) => {
                                             </span>
 
                                             <span className="font-semibold text-base sm:text-lg">
-                                                {marketAverage} টাকা
+                                                {toBanglaNumber(marketAverage)} টাকা
                                             </span>
                                         </div>
                                     </div>
@@ -284,7 +289,7 @@ const page = async ({ params }: IpromisParams) => {
                                                 className="border-b border-gray-500 last:border-b-0"
                                             >
                                                 <td className="px-4 py-3">
-                                                    {market.market}
+                                                    {(market.market)}
                                                 </td>
 
                                                 <td className="px-4 py-3">
@@ -292,15 +297,15 @@ const page = async ({ params }: IpromisParams) => {
                                                 </td>
 
                                                 <td className="px-4 py-3 text-right">
-                                                    {market.min} টাকা
+                                                    {toBanglaNumber(market.min)} টাকা
                                                 </td>
 
                                                 <td className="px-4 py-3 text-right">
-                                                    {market.max} টাকা
+                                                    {toBanglaNumber(market.max)} টাকা
                                                 </td>
 
                                                 <td className="px-4 py-3 text-right font-medium">
-                                                    {marketAverage} টাকা
+                                                    {toBanglaNumber(marketAverage)} টাকা
                                                 </td>
                                             </tr>
                                         );

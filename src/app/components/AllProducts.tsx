@@ -1,6 +1,9 @@
 import { getproducts } from "../api/products";
 import ProductCard from "./ProductCard";
+import {
+  toBanglaNumber
 
+} from "../../app/types/bangla";
 const Allproducts = async () => {
     const products = await getproducts();
 
@@ -8,7 +11,7 @@ const Allproducts = async () => {
         <div className="mt-15" id="সব-পণ্য">
             <div>
                 <h1 className="text-xl font-bold">সব পণ্য</h1>
-                <p>মোট {products.length} টি পণ্য দেখানো হচ্ছে</p>
+                <p>মোট {toBanglaNumber(products.length)} টি পণ্য দেখানো হচ্ছে</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-4">

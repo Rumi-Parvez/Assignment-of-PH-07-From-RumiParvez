@@ -3,6 +3,10 @@ import MarqueeText from "react-marquee-text";
 
 import { getproducts } from "../api/products";
 
+import {
+  toBanglaNumber,
+  toBanglaUnit,
+} from "../../app/types/bangla";
 const Marquee = async () => {
   const Products = await getproducts();
 
@@ -18,7 +22,7 @@ const Marquee = async () => {
                     <div className="flex gap-3 border border-gray-100 px-5 py-1 text-sm">
                       <h1 >{product.image}</h1>
                       <h1 className="text-black">{product.nameBn}</h1>
-                      <h1 className="text-black">{product.today} টাকা/{product.unit}</h1>
+                      <h1 className="text-black">{toBanglaNumber(product.today)} টাকা/{toBanglaUnit(product.unit)}</h1>
                       <h1
                         className={
                           product.change.dir === "up"
@@ -26,7 +30,7 @@ const Marquee = async () => {
                             : "text-green-600"
                         }>
                         {product.change.dir === "up" ? "▲" : "▼"}{" "}
-                        {String(product.change.pct).replace("-", "")}%
+                        {toBanglaNumber(product.change.pct).replace("-", "")}%
                       </h1>
                     </div>
                   </Link>

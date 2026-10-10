@@ -5,6 +5,10 @@ import CategoryProducts from "@/app/components/CategoryProducts";
 import CategoryLoad from "@/app/loadings/CategoryLoad";
 import { IProductType } from "@/app/types/productstype";
 
+import {
+  toBanglaNumber
+
+} from "../../types/bangla";
 interface PromisParams {
   params: Promise<{
     cgrid: string;
@@ -44,7 +48,7 @@ const Page = async ({ params }: PromisParams) => {
             </h1>
 
             <p className="text-xs sm:text-sm">
-              {allProducts.length}টি পণ্যের আজকের দাম ও পরিবর্তন
+              {toBanglaNumber(allProducts.length)}টি পণ্যের আজকের দাম ও পরিবর্তন
             </p>
           </div>
         </div>

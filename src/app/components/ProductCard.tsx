@@ -2,6 +2,10 @@ import Link from "next/link";
 
 import { IProductType } from "../types/productstype";
 
+import {
+  toBanglaNumber,
+  toBanglaUnit,
+} from "../../app/types/bangla";
 const ProductCard = ({ products }: { products: IProductType }) => {
   return (
     <div>
@@ -15,7 +19,7 @@ const ProductCard = ({ products }: { products: IProductType }) => {
               <h1 className="font-bold wrap-break-words">
                 {products.nameBn}
               </h1>
-              <p className="text-xs">প্রতি {products.unit}</p>
+              <p className="text-xs">প্রতি {toBanglaUnit(products.unit)}</p>
             </div>
           </div>
 
@@ -24,7 +28,7 @@ const ProductCard = ({ products }: { products: IProductType }) => {
               <p className="text-xs">আজকের দাম</p>
               <h1 className="text-sm">
                 <span className="text-lg sm:text-xl font-bold">
-                  {products.today}
+                  {toBanglaNumber(products.today)}
                 </span>{" "}
                 টাকা
               </h1>
@@ -51,7 +55,7 @@ const ProductCard = ({ products }: { products: IProductType }) => {
                   : products.change.pct === 0
                   ? ""
                   : "▼"}{" "}
-                {String(products.change.pct).replace("-", "")}%
+                {toBanglaNumber(products.change.pct).replace("-", "")}%
               </h1>
             </div>
           </div>

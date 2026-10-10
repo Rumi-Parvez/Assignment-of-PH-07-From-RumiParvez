@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+import {
+  toBanglaNumber
+
+} from "../../app/types/bangla";
 import ProductCard from "@/app/components/ProductCard";
 import CategorySort from "@/app/components/Sort";
 import { IProductType } from "@/app/types/productstype";
@@ -33,7 +37,7 @@ const CategoryProducts = ({
       </div>
 
       <h1 className="text-sm mt-5 sm:mt-6">
-        মোট {allProducts.length}টি পণ্য দেখানো হচ্ছে
+        মোট {toBanglaNumber(allProducts.length)}টি পণ্য দেখানো হচ্ছে
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-4 mb-20 sm:mb-24 lg:mb-30">

@@ -215,7 +215,7 @@ The application is designed to provide a consistent browsing experience on:
 
 ## Mobile view Screenshoot
 <p align="center">
-  <img src="./src/assets/{AF6DE8BF-0F40-4171-BE18-1A04B7A81A39}.png" alt="Bazar Dor Project Screenshot" width="100%" />
+  <img src="./src/assets/{8B77067D-6A9F-4913-9BEE-79CA43E09B18}.png" alt="Bazar Dor Project Screenshot" width="100%" />
 </p>
 
 

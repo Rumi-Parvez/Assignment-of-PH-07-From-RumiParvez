@@ -1,25 +1,19 @@
 # 🛒 Bazar Dor
 
-## 📌 About the Project
+##  About the Project
 
 Bazar Dor is a web application designed to help users explore daily essential product prices and compare market prices across different divisions of Bangladesh.
-
-The application displays product names and market information in Bangla using data provided directly by the API. Prices, measurement units, and percentage values are displayed in English format, while dates are displayed in Bangla date format. It provides category-based navigation and an easy-to-use interface for browsing essential commodities.
-
+The application displays product names and market information in Bangla using data provided directly by the API. Prices, measurement units, and percentage values are displayed in Bangla format, while dates are displayed in Bangla date format. It provides category-based navigation and an easy-to-use interface for browsing essential commodities.
 Built with Next.js, TypeScript, and modern UI libraries, Bazar Dor focuses on making market price information accessible through a responsive and user-friendly experience.
 
-## 🔗 Live Project
-
-- **Live Website:** https://bazardor-rouge.vercel.app/
-- **GitHub Repository:** https://github.com/Rumi-Parvez/Assignment-of-PH-07-From-RumiParvez
 
 ## Home Page Screenshoot
+
 <p align="center">
   <img src="./src/assets/{B168E300-4A2B-4A27-BD8B-1E31B70B3826}.png" alt="Bazar Dor Project Screenshot" width="100%" />
 </p>
 
-
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - **Next.js** — React framework for the application
 - **React** — Component-based user interface
@@ -31,83 +25,85 @@ Built with Next.js, TypeScript, and modern UI libraries, Bazar Dor focuses on ma
 - **React Icons** — Icon components
 - **Gravity UI Icons** — Interface icons
 - **React Marquee Text** — Scrolling text and ticker content
-- **React Toastify** — Toast notifications
+- **React Hot Toast** — Toast notifications and user feedback
 - **Better Auth** — Authentication
 - **MongoDB** — Database integration for authentication
 - **REST API** — Dynamic product and category data
 - **HTML5 & CSS3** — Web structure and styling
 
-## ✨ Core Features
+##  Core Features
 
 - **Product Price Information:** Displays product names in Bangla using the API data directly.
 - **Category-Based Navigation:** Allows users to browse products through product categories.
 - **Current and Historical Prices:** Shows today's price alongside yesterday's, last week's, and last month's prices.
-- **Price Change Indicators:** Displays price movement direction and percentage change.
+- **Price Change Indicators:** Displays price movement direction and percentage change using Bangla numbers.
+- **Bangla Number Formatting:** Displays numeric values, prices, and percentage values using Bangla numerals.
+- **Bangla Measurement Units:** Converts product measurement units from API values into Bangla for display.
 - **Market-Wise Price Comparison:** Shows minimum and maximum prices across different markets.
 - **Division-Based Market Data:** Includes market information associated with divisions of Bangladesh.
 - **Bangla Date Formatting:** Displays dates in Bangla date format.
 - **Dynamic API Integration:** Retrieves product and category information from REST API endpoints.
 - **Scrolling Price Ticker:** Uses React Marquee Text for scrolling text content.
-- **Toast Notifications:** Uses React Toastify to display feedback messages.
+- **Toast Notifications:** Uses React Hot Toast to display feedback messages.
+- **Protected Route Notifications:** Displays toast notifications when unauthenticated users try to access protected routes.
 - **Authentication Integration:** Uses Better Auth for user authentication functionality.
 - **Responsive Interface:** Designed to support mobile, tablet, and desktop screens.
 - **Modern UI Components:** Uses HeroUI, DaisyUI, React Icons, and Gravity UI Icons.
 
-
 ## Product Page Screenshoot
+
 <p align="center">
   <img src="./src/assets/{34108FBB-EF6E-4888-93AD-C3C8163B36DE}.png" alt="Bazar Dor Project Screenshot" width="100%" />
 </p>
 
-## 📊 Product Information
+##  Product Information
 
 Each product can contain the following information:
 
 - Product ID and slug
 - Product name in Bangla, provided directly by the API
 - Category name and category icon
-- Measurement unit displayed in English format
-- Today's price
-- Yesterday's price
-- Last week's price
-- Last month's price
-- Price movement direction and percentage change
+- Measurement unit converted into Bangla for display
+- Today's price displayed using Bangla numerals
+- Yesterday's price displayed using Bangla numerals
+- Last week's price displayed using Bangla numerals
+- Last month's price displayed using Bangla numerals
+- Price movement direction and percentage change displayed using Bangla numerals
 - Market names and divisions in Bangla
-- Minimum and maximum prices for individual markets
+- Minimum and maximum prices for individual markets displayed using Bangla numerals
 
-## 📈 Price Tracking
+##  Price Tracking
 
 Bazar Dor presents price information from multiple time periods to make price movements easier to understand.
 
-- **Today's Price:** The current listed price for the product.
-- **Yesterday's Price:** The previous day's listed price.
-- **Last Week's Price:** The listed price from the previous week.
-- **Last Month's Price:** The listed price from the previous month.
-- **Price Change:** Indicates whether the price has increased or decreased and displays the percentage change in English format.
-
+- **Today's Price:** The current listed price for the product, displayed using Bangla numerals.
+- **Yesterday's Price:** The previous day's listed price, displayed using Bangla numerals.
+- **Last Week's Price:** The listed price from the previous week, displayed using Bangla numerals.
+- **Last Month's Price:** The listed price from the previous month, displayed using Bangla numerals.
+- **Price Change:** Indicates whether the price has increased or decreased and displays the percentage change using Bangla numerals.
 
 ## Profile Page Screenshoot
+
 <p align="center">
   <img src="./src/assets/{7469D267-74D5-4774-A82C-86A4EE4C153C}.png" alt="Bazar Dor Project Screenshot" width="100%" />
 </p>
 
-
-## 🏪 Market Price Comparison
+##  Market Price Comparison
 
 The product data includes market-wise pricing information, including:
 
 - Market name in Bangla
 - Division name in Bangla
-- Minimum market price
-- Maximum market price
+- Minimum market price displayed using Bangla numerals
+- Maximum market price displayed using Bangla numerals
 
 This information helps users compare listed prices across different markets and divisions.
 
-## 🔌 API Integration
+##  API Integration
 
-Bazar Dor uses REST APIs to retrieve category and product data dynamically. Product names, category names, and market information are provided directly by the API in Bangla. The application does not rely on a language translation library to translate these values.
+Bazar Dor uses REST APIs to retrieve category and product data dynamically. Product names, category names, and market information are provided directly by the API in Bangla. The application converts numeric values and measurement units into Bangla for display without changing the original API data. The application does not rely on a language translation library to translate these values.
 
-## 📦 API Data Structure
+##  API Data Structure
 
 Bazar Dor uses API data to display product categories and market prices dynamically.
 
@@ -128,7 +124,6 @@ Example category structure:
 ]
 ```
 
-*Note: This is an illustrative example of a category structure, not a verified copy of the actual category API response.*
 
 ### Product Data
 
@@ -183,29 +178,29 @@ Each product contains price information, category details, historical prices, an
 - `category` — Category identifier.
 - `categoryNameBn` — Category name in Bangla.
 - `categoryIcon` — Category icon.
-- `unit` — Product measurement unit.
-- `today` — Today's listed price.
-- `yesterday` — Yesterday's listed price.
-- `lastWeek` — Last week's listed price.
-- `lastMonth` — Last month's listed price.
+- `unit` — Product measurement unit, converted into Bangla for display.
+- `today` — Today's listed price, displayed using Bangla numerals.
+- `yesterday` — Yesterday's listed price, displayed using Bangla numerals.
+- `lastWeek` — Last week's listed price, displayed using Bangla numerals.
+- `lastMonth` — Last month's listed price, displayed using Bangla numerals.
 - `change.dir` — Price movement direction.
-- `change.pct` — Percentage change.
+- `change.pct` — Percentage change, displayed using Bangla numerals.
 - `markets` — Market-wise pricing information.
-- `markets[].min` — Minimum listed market price.
-- `markets[].max` — Maximum listed market price.
+- `markets[].min` — Minimum listed market price, displayed using Bangla numerals.
+- `markets[].max` — Maximum listed market price, displayed using Bangla numerals.
 
-The application uses this data structure to present product information, price trends, and market comparisons in an accessible interface.
+The application uses this data structure to present product information, price trends, and market comparisons in an accessible interface. Numeric values and measurement units are formatted in Bangla on the UI while the original API data remains unchanged.
 
-## 🧩 UI and User Feedback
+##  UI and User Feedback
 
 - **HeroUI:** UI components for building the interface.
 - **DaisyUI:** Ready-to-use Tailwind CSS component styles.
 - **React Icons:** Icons used throughout the application.
 - **Gravity UI Icons:** Additional interface icons.
 - **React Marquee Text:** Scrolling ticker content.
-- **React Toastify:** Toast notifications for user feedback.
+- **React Hot Toast:** Toast notifications for user feedback, including notifications for protected-route access.
 
-## 📱 Responsive Design
+##  Responsive Design
 
 The application is designed to provide a consistent browsing experience on:
 
@@ -214,18 +209,17 @@ The application is designed to provide a consistent browsing experience on:
 - Desktop computers
 
 ## Mobile view Screenshoot
+
 <p align="center">
   <img src="./src/assets/{8B77067D-6A9F-4913-9BEE-79CA43E09B18}.png" alt="Bazar Dor Project Screenshot" width="100%" />
 </p>
 
+##  Authentication and Database
 
-## 🔐 Authentication and Database
-
-The project integrates Better Auth for authentication and MongoDB for authentication-related database operations.
-
-
+The project integrates Better Auth for authentication and MongoDB for authentication-related database operations. Protected routes restrict access to unauthenticated users and use React Hot Toast to notify users when sign-in is required.
 
 ## SignUp - SingIn Page Screenshoot
+
 <p align="center">
   <img src="./src/assets/{85691057-4E03-4A8E-8E87-08BACF6961AC}.png" alt="Bazar Dor Project Screenshot" width="100%" />
 </p>
@@ -239,7 +233,7 @@ The project integrates Better Auth for authentication and MongoDB for authentica
 
 **Name:** Rumi Parvez
 
-**GitHub:** [Rumi-Parvez](https://github.com/Rumi-Parvez)
+**GitHub:** https://github.com/Rumi-Parvez
 
 **Email:** openyhoolceo@gmail.com
 
